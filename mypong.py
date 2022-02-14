@@ -44,11 +44,11 @@ score_2 = 0
 hud = turtle.Turtle()
 hud.speed(0)
 hud.shape("square")
-hud.color("white")
+hud.color("red")
 hud.penup()
 hud.hideturtle()
 hud.goto(0, 260)
-hud.write("0 : 0", align="center", font=("Press Start 2P", 24, "normal"))
+hud.write("0 : 0", align="center", font=("Courier", 24, "normal"))
 
 
 def paddle_1_up():
@@ -117,7 +117,8 @@ while True:
     if ball.xcor() < -390:
         score_2 += 1
         hud.clear()
-        hud.write("{} : {}".format(score_1, score_2), align="center", font=("Press Start 2P", 24, "normal"))
+        hud.write("{} : {}".format(score_1, score_2), align="center", 
+                  font=("Press Start 2P", 24, "normal"))
         winsound.PlaySound("258020__kodack__arcade-bleep-sound.wav", winsound.SND_ASYNC)
         ball.goto(0, 0)
         ball.dx *= -1
@@ -126,7 +127,8 @@ while True:
     if ball.xcor() > 390:
         score_1 += 1
         hud.clear()
-        hud.write("{} : {}".format(score_1, score_2), align="center", font=("Press Start 2P", 24, "normal"))
+        hud.write("{} : {}".format(score_1, score_2), align="center", 
+                  font=("Press Start 2P", 24, "normal"))
         winsound.PlaySound("258020__kodack__arcade-bleep-sound.wav", winsound.SND_ASYNC)
         ball.goto(0, 0)
         ball.dx *= -1
@@ -135,6 +137,7 @@ while True:
     if (ball.xcor() < -330 and ball.xcor()>-340) and paddle_1.ycor() + 50 > ball.ycor() > paddle_1.ycor() - 50:
         ball.dx *= -1
         winsound.PlaySound("bounce.wav", winsound.SND_ASYNC)
+
     # collision with the paddle 2
     if (ball.xcor() > 330 and ball.xcor() <340) and paddle_2.ycor() + 50 > ball.ycor() > paddle_2.ycor() - 50:
         ball.dx *= -1
